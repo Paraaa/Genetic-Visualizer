@@ -2,6 +2,7 @@
 The goal of this tool is to create a visualisation of the optimization process of an evolutionary algorithm. 
 The visualisation should provide some deeper inside in the behaviour of the evolutionary algorithm. Mainly, the consequences of changing certain parameters and operators on the optimization process should be visualized with the help of this tool. 
 Therefore, this tool can be used as a supporting medium in teaching concepts and behaviour of evolutionary algorithms. 
+![Alt text](screenshot.PNG)
 ## Requirements
 1. It is necessary to have a _JRE_ installed. You need to have the version 11 or higher. It is recommended to use the latest version found here:  
 > https://www.oracle.com/java/technologies/downloads/
