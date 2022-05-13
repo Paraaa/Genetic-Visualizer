@@ -20,11 +20,12 @@ Simply add the permission to the file, and then it should start:
 `chmod +x GeneticVisualizer-Linux.jar`
 ### macOS
 If you are running a macOS system you have to build the project yourself. Check the building part of this readme 
-for more information.  
+for more information. 
 
 ### Building the project 
 1. Download the latest version of Maven for your system at: https://maven.apache.org/download.cgi
-2. Download the project and unzip it
+2. Download the project and unzip it. If you are running a macOS system download the project from the 
+`Genetic-Visualizer-macOS-m1` branch of this project 
 3. Start a terminal and navigate to the directory of the project there the pom.xml is located
 4. If maven was properly installed you can run `mvn clean install` to build the jar executable
 5. The new build jar will be located in the folder `/Jar` with the name: `Thesis-1.0-SNAPSHOT-jar-with-dependencies.jar`
