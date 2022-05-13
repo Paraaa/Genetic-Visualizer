@@ -10,8 +10,7 @@ Therefore, this tool can be used as a supporting medium in teaching concepts and
 
 ## Operating systems
 This tool should work on all commonly used operating system.
-This includes _Windows 10/11_, _Linux_ and _macOS_. For each 
-platform there is one executable _JAR_ file found.
+This includes _Windows 10/11_, _Linux_ and _macOS_.
 ### Windows 10/11
 To run the program you simply double-click the executable for the Windows version.
 ### Linux 
