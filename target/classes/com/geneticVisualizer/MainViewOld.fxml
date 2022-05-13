@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="900.0" maxWidth="1306.0" minHeight="888.0" minWidth="1200.0" prefHeight="888.0" prefWidth="1306.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.geneticVisualizer.gui.Controller">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="921.0" spacing="10.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Button fx:id="startButton" mnemonicParsing="false" onAction="#start" prefHeight="28.0" prefWidth="71.0" text="Start" />
+                  <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stop" prefHeight="28.0" prefWidth="71.0" text="Stop" />
+                  <Button fx:id="continueButton" mnemonicParsing="false" onAction="#continueRun" prefHeight="25.0" prefWidth="77.0" text="Continue" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="68.0" text="Generation" />
+                  <Button fx:id="generationBackwardsButton" mnemonicParsing="false" onAction="#generationBackwards" prefHeight="28.0" prefWidth="71.0" text="-1" />
+                  <Button fx:id="generationForwardButton" mnemonicParsing="false" onAction="#generationForward" prefHeight="28.0" prefWidth="71.0" text="+1" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="194.0" spacing="5.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="62.0" text="Operator">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="operatorBackwardsButton" mnemonicParsing="false" onAction="#operatorBackwards" prefHeight="28.0" prefWidth="71.0" text="-1" />
+                  <Button fx:id="operatorForwardButton" mnemonicParsing="false" onAction="#operatorForward" prefHeight="28.0" prefWidth="71.0" text="+1" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="669.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="103.0" text="Animation Speed" />
+                  <Slider fx:id="delaySlider" blockIncrement="0.1" max="2.0" min="0.1" nodeOrientation="RIGHT_TO_LEFT" value="0.3" />
+                  <Button mnemonicParsing="false" onAction="#clearGraph" prefHeight="25.0" prefWidth="80.0" text="Clear Graph" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <GridPane fx:id="mainGrid" gridLinesVisible="true" prefHeight="894.0" prefWidth="1200.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="1000.0" />
+          <ColumnConstraints hgrow="NEVER" maxWidth="594.0" minWidth="10.0" prefWidth="333.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints />
+            <RowConstraints maxHeight="740.0" minHeight="10.0" prefHeight="674.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="176.0" minHeight="10.0" prefHeight="176.0" vgrow="ALWAYS" />
+        </rowConstraints>
+         <children>
+            <ImageView fx:id="contourView" fitHeight="670.0" fitWidth="930.0" pickOnBounds="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+            <VBox prefHeight="612.0" prefWidth="267.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <AnchorPane fx:id="modelingPane" prefHeight="642.0" prefWidth="267.0">
+                     <children>
+                        <ChoiceBox fx:id="optProblemChoice" layoutX="125.0" layoutY="36.0" prefHeight="25.0" prefWidth="176.0" />
+                        <ChoiceBox fx:id="goalChoice" layoutX="125.0" layoutY="62.0" prefHeight="25.0" prefWidth="176.0" />
+                        <Spinner fx:id="maxIterationSpinner" editable="true" layoutX="125.0" layoutY="89.0" prefHeight="25.0" prefWidth="176.0" />
+                        <Spinner fx:id="muSpinner" editable="true" layoutX="127.0" layoutY="127.0" prefHeight="25.0" prefWidth="176.0" />
+                        <Spinner fx:id="lambdaSpinner" editable="true" layoutX="127.0" layoutY="157.0" prefHeight="25.0" prefWidth="176.0" />
+                        <ChoiceBox fx:id="representationChoice" layoutX="127.0" layoutY="185.0" prefHeight="25.0" prefWidth="176.0" />
+                        <ChoiceBox fx:id="selectionTypeChoice" layoutX="127.0" layoutY="213.0" prefHeight="25.0" prefWidth="176.0" />
+                        <ChoiceBox fx:id="initialDistributionChoice" layoutX="128.0" layoutY="241.0" prefHeight="25.0" prefWidth="176.0" />
+                        <Spinner fx:id="parentSelectionElitismSpinner" editable="true" layoutX="129.0" layoutY="324.0" prefHeight="25.0" prefWidth="176.0" />
+                        <Spinner fx:id="parentSizeSpinner" editable="true" layoutX="129.0" layoutY="355.0" prefHeight="25.0" prefWidth="176.0" />
+                        <ChoiceBox fx:id="parentSelectionChoice" layoutX="129.0" layoutY="384.0" prefHeight="25.0" prefWidth="176.0" />
+                        <CheckBox fx:id="crossoverEnable" layoutX="182.0" layoutY="428.0" mnemonicParsing="false" text="Enable" />
+                        <ChoiceBox fx:id="crossoverChoice" layoutX="131.0" layoutY="452.0" prefHeight="25.0" prefWidth="176.0" />
+                        <CheckBox fx:id="mutationEnable" layoutX="182.0" layoutY="505.0" mnemonicParsing="false" text="Enable" />
+                        <ChoiceBox fx:id="mutationChoice" layoutX="129.0" layoutY="525.0" prefHeight="25.0" prefWidth="176.0" />
+                        <Spinner fx:id="mutationProbabilitySpinner" editable="true" layoutX="129.0" layoutY="554.0" prefHeight="25.0" prefWidth="176.0" />
+                        <Spinner fx:id="survivorSelectionElitismSpinner" editable="true" layoutX="131.0" layoutY="633.0" prefHeight="25.0" prefWidth="176.0" />
+                        <ChoiceBox fx:id="survivorSelectionChoice" layoutX="131.0" layoutY="660.0" prefHeight="25.0" prefWidth="176.0" />
+                        <Label layoutX="6.0" layoutY="359.0" text="Parent size" />
+                        <Label fx:id="parentSelectionLabel" layoutX="3.0" layoutY="292.0" text="Parent-Selection">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="6.0" layoutY="388.0" text="Operation" />
+                        <Label fx:id="crossoverLabel" layoutX="3.0" layoutY="420.0" text="Crossover">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="456.0" text="Operation" />
+                        <Label fx:id="mutationLabel" layoutX="8.0" layoutY="497.0" text="Mutation">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="12.0" layoutY="529.0" text="Operation" />
+                        <Label layoutX="12.0" layoutY="558.0" text="Probability in %" />
+                        <Label layoutX="5.0" layoutY="41.0" text="Function" />
+                        <Label layoutX="5.0" layoutY="90.0" prefHeight="24.0" prefWidth="109.0" text="Max iterations" />
+                        <Label layoutX="6.0" layoutY="62.0" prefHeight="24.0" prefWidth="109.0" text="Goal" />
+                        <Separator layoutY="115.0" prefHeight="9.0" prefWidth="320.0" />
+                        <Label layoutX="4.0" layoutY="189.0" prefHeight="17.0" prefWidth="89.0" text="Representation" />
+                        <Separator layoutY="278.0" prefHeight="9.0" prefWidth="320.0" />
+                        <Label layoutX="5.0" layoutY="328.0" text="Elitism" />
+                        <Label fx:id="survivorSelectionLabel" layoutX="5.0" layoutY="601.0" text="Survivor-Selection">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="664.0" text="Operation" />
+                        <Label layoutX="14.0" layoutY="637.0" text="Elitism" />
+                        <Label layoutX="8.0" layoutY="161.0" text="λ " />
+                        <Label layoutX="7.0" layoutY="131.0" text="μ" />
+                        <Label layoutX="4.0" layoutY="217.0" prefHeight="17.0" prefWidth="89.0" text="Selection type" />
+                        <Label layoutX="4.0" layoutY="245.0" prefHeight="17.0" prefWidth="109.0" text="Initial distribution" />
+                        <Label layoutX="5.0" layoutY="7.0" text="Name" />
+                        <TextField fx:id="runNameTextField" layoutX="125.0" layoutY="3.0" prefHeight="25.0" prefWidth="176.0" />
+                        <Separator layoutY="29.0" prefHeight="9.0" prefWidth="320.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Label layoutX="12.0" layoutY="14.0" text="Generation">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label layoutX="12.0" layoutY="45.0" text="Best Fitness">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label layoutX="12.0" layoutY="80.0" text="Worst Fitness">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label layoutX="12.0" layoutY="111.0" text="Average Fitness">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label layoutX="12.0" layoutY="145.0" text="Solution">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label fx:id="generationLabel" layoutX="128.0" layoutY="14.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label fx:id="bestFitnessLabel" layoutX="128.0" layoutY="45.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label fx:id="worstFitnessLabel" layoutX="128.0" layoutY="80.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label fx:id="averageFitnessLabel" layoutX="128.0" layoutY="111.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label fx:id="solutionLabel" layoutX="128.0" layoutY="145.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+   </children>
+</VBox>
